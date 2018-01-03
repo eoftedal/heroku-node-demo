@@ -1,1 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
 Hello world
+
+<script>
+var cookies = document.cookie.split(";").map(cookie => ({ name: cookie.substring(0,cookie.indexOf("=")), value: cookie.substring(cookie.indexOf("=")+1) }));
+
+var username = "";
+var cookie = cookies.filter(x => x.name == "username")[0];
+if (cookie) username = cookie.value;
+
+
+var d = document.createElement("div");
+document.body.appendChild(d);
+d.innerHTML = "I found the following value in the cookie: " + username; 
+</script>
+
+</body>
+</html>
